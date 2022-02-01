@@ -19,15 +19,15 @@ namespace CarAppDotNetApi.Controllers
         }
 
         [Authorize(Roles = Role.User + "," + Role.Admin)]
-        [HttpGet("{id:int}")]
-        public IActionResult GetCarById(int id)
+        [HttpGet("GetCar")]
+        public IActionResult GetCarById([FromQuery(Name = "id")] int id)
         {
             return BaseGetResult(_carService.FindCarById(id));
         }
         
         [Authorize(Roles = Role.User + "," + Role.Admin)]
-        [HttpGet("GetAllCars/{page:int}")]
-        public IActionResult GetAllCars(int page)
+        [HttpGet("GetAllCars")]
+        public IActionResult GetAllCars([FromQuery(Name = "page")] int page)
         {
             return Ok(_carService.FindAllCars(page));
         }

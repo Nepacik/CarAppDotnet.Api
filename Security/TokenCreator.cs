@@ -25,7 +25,7 @@ namespace CarAppDotNetApi.Security
 
             String role = user.Username.StartsWith("N") ? Role.Admin : Role.User;
 
-            DateTime expirationDate = isAccessToken ? DateTime.UtcNow.AddMinutes(5) : DateTime.UtcNow.AddMonths(12);
+            DateTime expirationDate = isAccessToken ? DateTime.Now.AddMinutes(5) : DateTime.Now.AddMonths(12);
 
             var tokenHander = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor

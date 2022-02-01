@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
 
@@ -23,6 +24,7 @@ namespace CarAppDotNetApi.Security
             ValidateAudience = false;
             ValidateLifetime = true;
             ValidateIssuerSigningKey = true;
+            ClockSkew = TimeSpan.Zero;
         }
     }
 }
